@@ -25,7 +25,7 @@ public class HibernateTest {
 		officeAddress.setCity("officecity");
 		officeAddress.setState("officeState");
 		officeAddress.setStreet("officestreet");
-		officeAddress.setZip("office12345");
+		officeAddress.setZip("office");
 		
 		
 		UserDetails user = new UserDetails();
