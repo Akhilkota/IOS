@@ -1,5 +1,8 @@
 package org.mapping.dto;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +15,15 @@ public class Vehicle {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int vehicleId;
 	private String vehicleName;
+	@Column(name = "InDate")
+	private Date InDate;
+	
+	public Date getInDate() {
+		return InDate;
+	}
+	public void setInDate(Date inDate) {
+		InDate = inDate;
+	}
 	public int getVehicleId() {
 		return vehicleId;
 	}
@@ -23,5 +35,9 @@ public class Vehicle {
 	}
 	public void setVehicleName(String vehicleName) {
 		this.vehicleName = vehicleName;
+	}
+	@Override
+	public String toString() {
+		return "Vehicle [vehicleId=" + vehicleId + ", vehicleName=" + vehicleName + ", InDate=" + InDate + "]";
 	}
 }

@@ -38,6 +38,16 @@ public class UserDetails {
 	@CollectionId(columns = { @Column(name = "ADDRESS_ID") }, generator = "halo-gen", type = @Type(type = "long"))
 	private Collection<Address> addresses = new ArrayList<Address>();
 	
+	@Column(name = "InDate")
+	private Date InDate;
+	
+	public Date getInDate() {
+		return InDate;
+	}
+	public void setInDate(Date inDate) {
+		InDate = new Date();
+	}
+	
 
 
 	public Collection<Address> getAddresses() {

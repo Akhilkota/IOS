@@ -1,9 +1,12 @@
 package org.mapping.dto;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +26,16 @@ public class UserDetails {
 	@OneToMany(cascade = CascadeType.ALL)
 	//@JoinColumn(name = "VehicleID")
 	private Collection<Vehicle> vehicle = new ArrayList<>();
+	@Column(name = "InDate" )
+	private Date InDate;
 	
+	public Date getInDate() {
+		return InDate;
+	}
+	public void setInDate(Date inDate) {
+		
+		InDate = inDate;
+	}
 	
 
 	public Collection<Vehicle> getVehicle() {
@@ -43,5 +55,10 @@ public class UserDetails {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	@Override
+	public String toString() {
+		return "UserDetails [userId=" + userId + ", userName=" + userName + ", vehicle=" + vehicle + ", InDate="
+				+ InDate + "]";
 	}
 }

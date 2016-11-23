@@ -1,5 +1,7 @@
 package org.akhil.dto;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
@@ -14,6 +16,14 @@ public class Address {
 	private String state;
 	@Column(name = "ZIP")
 	private String zip;
+	@Column(name = "InDate")
+	private Date InDate;
+	public Date getInDate() {
+		return InDate;
+	}
+	public void setInDate(Date inDate) {
+		InDate = new Date();
+	}
 	public String getStreet() {
 		return street;
 	}
