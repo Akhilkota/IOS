@@ -7,8 +7,8 @@ public class ImplementingTest implements Test{
 
 	}
 
-	@Override
-	public void display() {
+
+    public void display() {
 		// TODO Auto-generated method stub
 		
 		

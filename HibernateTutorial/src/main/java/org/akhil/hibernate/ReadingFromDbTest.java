@@ -1,14 +1,8 @@
 package org.akhil.hibernate;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.mapping.dto.UserDetails;
 import org.mapping.dto.Vehicle;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class ReadingFromDbTest {
@@ -37,7 +31,7 @@ public class ReadingFromDbTest {
                 System.out.println(vehicle1.toString());
             }
 
-        }finally {
+        } finally {
             HibernateDAO.closeConnections();
         }
 

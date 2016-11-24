@@ -10,7 +10,6 @@ import org.hibernate.query.Query;
 import org.mapping.dto.UserDetails;
 import org.mapping.dto.Vehicle;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -23,10 +22,9 @@ public class HibernateDAO {
 
     public static Session getConnection() {
 
-        if (session != null && session.getSession().isOpen()   ){
+        if (session != null && session.getSession().isOpen()) {
             return session;
-        }
-        else{
+        } else {
             factory = new Configuration().configure().buildSessionFactory();
             session = factory.openSession();
             session.beginTransaction();
@@ -75,21 +73,21 @@ public class HibernateDAO {
     public static UserDetails readFromDbByUserId(int id) {
 
         HibernateDAO.getConnection();
-        String hql = "From UserDetails U where U.userId = " + id ;
+        String hql = "From UserDetails U where U.userId = " + id;
 
         Query query = session.createQuery(hql);
-        UserDetails userDetails =(UserDetails) query.uniqueResult();
-       // close connection
+        UserDetails userDetails = (UserDetails) query.uniqueResult();
+        // close connection
         return userDetails;
     }
 
     public static UserDetails readFromDbByUserName(String name) {
 
         HibernateDAO.getConnection();
-        String hql = "From UserDetails where userName = '" + name +"'";
+        String hql = "From UserDetails where userName = '" + name + "'";
 
         Query query = session.createQuery(hql);
-        UserDetails userDetails =(UserDetails) query.uniqueResult();
+        UserDetails userDetails = (UserDetails) query.uniqueResult();
 
         return userDetails;
     }
@@ -99,11 +97,11 @@ public class HibernateDAO {
         HibernateDAO.getConnection();
         Criteria c = session.createCriteria(Vehicle.class);
 
-        Criterion cr = Restrictions.eq("vehicleId" , vehicleid);
+        Criterion cr = Restrictions.eq("vehicleId", vehicleid);
         c.add(cr);
 
-        Vehicle vehicle =(Vehicle) c.uniqueResult();
-      //  HibernateDAO.closeConnections();
+        Vehicle vehicle = (Vehicle) c.uniqueResult();
+        //  HibernateDAO.closeConnections();
         return vehicle;
     }
 
@@ -113,11 +111,11 @@ public class HibernateDAO {
         HibernateDAO.getConnection();
         Criteria c = session.createCriteria(Vehicle.class);
 
-        Criterion cr = Restrictions.eq("vehicleName" , vehicleName);
+        Criterion cr = Restrictions.eq("vehicleName", vehicleName);
         c.add(cr);
 
         List<Vehicle> vehicle = c.list();
-      //  HibernateDAO.closeConnections();
+        //  HibernateDAO.closeConnections();
         return vehicle;
     }
 
