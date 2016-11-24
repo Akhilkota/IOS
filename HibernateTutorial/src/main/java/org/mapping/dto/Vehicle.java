@@ -27,9 +27,7 @@ public class Vehicle {
 	public int getVehicleId() {
 		return vehicleId;
 	}
-	/*public void setVehicleId(int vehicleId) {
-		this.vehicleId = vehicleId;
-	}*/
+
 	public String getVehicleName() {
 		return vehicleName;
 	}
@@ -48,6 +46,6 @@ public class Vehicle {
 
     @Override
 	public String toString() {
-		return "Vehicle [vehicleId=" + vehicleId + ", vehicleName=" + vehicleName + ", InDate=" + InDate + "]";
+		return "Vehicle [vehicleId= " + vehicleId + ", vehicleName= " + vehicleName + ", TimeRegistered= " + InDate + "]";
 	}
 }

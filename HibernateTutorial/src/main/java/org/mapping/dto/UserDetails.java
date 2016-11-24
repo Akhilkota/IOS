@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class UserDetails {
@@ -25,7 +27,8 @@ public class UserDetails {
 	private String userName;
 	@OneToMany(cascade = CascadeType.ALL)
 	//@JoinColumn(name = "VehicleID")
-	private Collection<Vehicle> vehicle = new ArrayList<>();
+    //@Fetch(FetchMode.JOIN)//fetchmode.join diables lazy loading
+	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 	@Column(name = "InDate" )
 	private Date InDate;
 	
